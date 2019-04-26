@@ -1,9 +1,10 @@
+# Links / Background Reading
 * https://linkerd.io/
 * https://linkerd.io/1/overview/what-is-linkerd/
 * https://www.youtube.com/watch?time_continue=1463&v=2trOvMUuLkk Service Mesh evolution - talk at CNCF
 
 # Overview
-Deploy linkerd using supergloo.
+Deploy linkerd on AKS using supergloo.
 SuperGloo, an open-source project to manage and orchestrate service meshes at scale.
 
 # Deploy supergloo
