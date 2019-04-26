@@ -56,9 +56,10 @@ kubectl -n linkerd port-forward linkerd-web-54b47dd7d9-d2crj 8084:8084
 # Point your browser 
 * https://localhost:8084/ Linkerd2 GUI
 * http://localhost:8084/grafana/ Grafana GUI
-** All pods within the linkerd namespace are meshed by default.
 
-# run a demo app
+All pods within the linkerd namespace are meshed by default.
+
+# Run a demo app
 ```
 curl -sL https://run.linkerd.io/emojivoto.yml | kubectl apply -f -
 kubectl get pods,svc -n emojivoto
@@ -69,7 +70,7 @@ kubectl get pods,svc -n emojivoto
 http://localhost:9000/overview
 ```
 
-# mesh the demo app through injection
+# Mesh the demo app through injection
 ```
 kubectl get -n emojivoto deploy -o yaml | linkerd inject - | kubectl apply -f -
 ```
@@ -79,12 +80,12 @@ kubectl get -n emojivoto deploy -o yaml | linkerd inject - | kubectl apply -f -
 kubectl edit deployment/voting -n emojivoto
 ```
 
-# show linkerd stats from the command line
+# Show app stats using linkerd from the command line
 ```
 linkerd -n emojivoto stat deploy
 ```
 
-# see services running in realtime
+# View services running in realtime
 ```
 linkerd -n emojivoto top deploy
 ```
