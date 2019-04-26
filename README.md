@@ -60,7 +60,7 @@ kubectl -n linkerd port-forward linkerd-web-54b47dd7d9-d2crj 8084:8084
 
 All pods within the linkerd namespace are meshed by default.
 
-### Run a demo app
+### Run a demo app on K8s
 ```
 curl -sL https://run.linkerd.io/emojivoto.yml | kubectl apply -f -
 kubectl get pods,svc -n emojivoto
