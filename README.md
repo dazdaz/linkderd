@@ -71,7 +71,7 @@ kubectl get pods,svc -n emojivoto
 http://localhost:9000/overview
 ```
 
-### Mesh the demo app through injection
+### Mesh the demo app through YAML injection
 ```
 kubectl get -n emojivoto deploy -o yaml | linkerd inject - | kubectl apply -f -
 ```
