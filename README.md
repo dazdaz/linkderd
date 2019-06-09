@@ -18,7 +18,7 @@ supergloo install linkerd --name linkerd
 kubectl get ns
 kubectl get all -n supergloo-system
 kubectl get pods -n supergloo-system
-kubectl get pod -n linkerd –watch
+kubectl get pods -n linkerd --watch
 
 cat << EOF | kubectl apply -f -
 apiVersion: supergloo.solo.io/v1
