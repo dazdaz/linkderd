@@ -10,14 +10,13 @@
 
 ### Deploy supergloo
 ```
-curl -sL https://run.solo.io/supergloo/install | sh
-export PATH=$PATH:$HOME/.supergloo/bin
-supergloo init
-supergloo init --dry-run
-supergloo install linkerd --name linkerd
-kubectl get ns
-kubectl get all -n supergloo-system
-kubectl get pods -n supergloo-system
+curl -sL https://run.linkerd.io/install | sh
+export PATH=$PATH:$HOME/.linkerd2/bin
+linkerd version
+linkerd check --pre
+linkerd install | kubectl apply -f -
+linkerd check
+kubectl -n linkerd get deploy --watch
 kubectl get pods -n linkerd --watch
 
 cat << EOF | kubectl apply -f -
