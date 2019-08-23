@@ -7,10 +7,11 @@
 * Deploy linkerd on AKS
 
 
-### Can deploy linkerd2 via Helm https://linkerd.io/2/tasks/install-helm/
+### Deploy linkerd2 via Helm
+* https://linkerd.io/2/tasks/install-helm/
 
 
-### Deploy the linkerd CLI
+### Deploy the linkerd CLI manually
 ```
 curl -sL https://run.linkerd.io/install | sh
 export PATH=$PATH:$HOME/.linkerd2/bin
