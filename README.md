@@ -6,31 +6,9 @@
 ### Overview
 * Deploy linkerd on AKS
 
-### Deploy supergloo
-```
-curl -sL https://run.linkerd.io/install | sh
-export PATH=$PATH:$HOME/.linkerd2/bin
-linkerd version
-linkerd check --pre
-linkerd install | kubectl apply -f -
-linkerd check
-kubectl -n linkerd get deploy --watch
-kubectl get pods -n linkerd --watch
 
-cat << EOF | kubectl apply -f -
-apiVersion: supergloo.solo.io/v1
-kind: Install
-metadata:
-  name: linkerd
-spec:
-  installationNamespace: linkerd
-  mesh:
-    linkerdMesh:
-      enableAutoInject: true
-      enableMtls: true
-      linkerdVersion: stable-2.2.1
-EOF
-```
+### Can deploy linkerd2 via Helm https://linkerd.io/2/tasks/install-helm/
+
 
 ### Deploy the linkerd CLI
 ```
@@ -107,4 +85,30 @@ kubectl edit install linkerd
 ```
 kubectl delete -n default -f https://raw.githubusercontent.com/istio/istio/1.0.6/samples/bookinfo/platform/kube/bookinfo.yaml
 kubectl delete ns not-injected
+```
+
+### Deploy supergloo
+```
+curl -sL https://run.linkerd.io/install | sh
+export PATH=$PATH:$HOME/.linkerd2/bin
+linkerd version
+linkerd check --pre
+linkerd install | kubectl apply -f -
+linkerd check
+kubectl -n linkerd get deploy --watch
+kubectl get pods -n linkerd --watch
+
+cat << EOF | kubectl apply -f -
+apiVersion: supergloo.solo.io/v1
+kind: Install
+metadata:
+  name: linkerd
+spec:
+  installationNamespace: linkerd
+  mesh:
+    linkerdMesh:
+      enableAutoInject: true
+      enableMtls: true
+      linkerdVersion: stable-2.2.1
+EOF
 ```
